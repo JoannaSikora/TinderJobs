@@ -22,6 +22,15 @@ app.use(passport.session())
 
 require('./routes/authRoutes')(app)
 
+if (process.env.NODE_ENV === 'production') {
+  //express serve production assets
+  app.use(express.static('client/build'))
+  //and express serves index.html if it doesnt recognize the route
+  const path = require('path')
+  app.get('*',(req,res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  } )
+}
 
 //DB Config
 const db = require('./config/keys').mongoURI
