@@ -4,13 +4,11 @@ import {connect} from 'react-redux'
 import * as actions from '../actions'
 
 
-
-import '../App.css';
 import Header from './Header'
 import Landing from './Landing'
-const Dashboard = () => <h2>Dashboard</h2>
-const Profile = () => <h2>Profile</h2>
-const ProfileEdit = () => <h2>Profile editing mode onn</h2>
+import Dashboard from './Dashboard'
+import Profile from './Profile'
+
 
 class App extends Component {
   componentDidMount(){
@@ -19,14 +17,13 @@ class App extends Component {
 
   render(){
     return (
-    <div className="container">
+    <div>
       <BrowserRouter>
         <div>
         <Header/>
           <Route exact path="/" component={Landing}/>
           <Route path="/dashboard" component={Dashboard}/>
           <Route exact path="/profile" component={Profile}/>
-          <Route path="/profile/edit" component={ProfileEdit}/>
         </div>
       </BrowserRouter>
     </div>

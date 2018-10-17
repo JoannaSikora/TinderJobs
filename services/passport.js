@@ -18,7 +18,7 @@ passport.deserializeUser((id, done) => {
 })
 
 
-//Googleauth
+//GoogleAuth
 passport.use(new GoogleStrategy({
   clientID: keys.GoogleClientID,
   clientSecret: keys.GoogleClientSecret,
@@ -34,7 +34,8 @@ passport.use(new GoogleStrategy({
     } else {
       //create new user
       new User({
-        googleId: profile.id
+        googleId: profile.id,
+        image: profile.image
       }).save()
       .then(user => {
         done(null, user)

@@ -9,7 +9,7 @@ class Header extends Component {
           return;
         case false:
           return (
-            <li>
+            <li className="nav-link">
             <a href="/auth/google">
             Login With Google
             </a>
@@ -18,13 +18,10 @@ class Header extends Component {
         default:
           return (
             <div>
-            <li><a href="/">
+            <li className="nav-link "><Link to='/profile'>
             Profile
-            </a></li>
-            <li><a href="/">
-            Messages
-            </a></li>
-            <li><a href="/api/logout">
+            </Link></li>
+            <li className="nav-link"><a href="/api/logout">
             Logout
             </a></li>
             </div>
@@ -39,10 +36,10 @@ class Header extends Component {
         <div className="nav-wrapper">
           <Link
           to={this.props.auth ? '/dashboard': '/'}
-          className="brand-logo"
+          className="brand-logo nav-logo"
           >
           TinderJobs</Link>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <ul id="nav-mobile" className="right">
               {this.renderContent()}
     </ul>
   </div>
